@@ -1,6 +1,10 @@
-To install this module manually:
+# LaSossis Lancer Style Library
 
-Inside the Foundry "Configuration and Setup" screen, click "Add-on Modules"
-Click "Install Module"
-In the "Manifest URL" field, paste the following url: https://raw.githubusercontent.com/Agraael/lancer-style-library/master/module.json
-Click 'Install' and wait for installation to complete
+Shared UI styles for LaSossis's Lancer modules.
+
+## Installation
+
+In Foundry, go to **Add-on Modules → Install Module**, paste this into the **Manifest URL** field at the bottom, and hit Install:
+```
+https://github.com/Agraael/lancer-style-library/releases/latest/download/module.json
+```
