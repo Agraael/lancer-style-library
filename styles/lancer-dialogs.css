@@ -703,3 +703,20 @@ form.lancer-dialog-base,
 .lancer-dialog-base *::-webkit-scrollbar-thumb:hover {
     background: color-mix(in srgb, var(--primary-color), white 20%) !important;
 }
+
+body.crlngn-ui.crlngn-chat.system-lancer .chat-message .message-content {
+    --crlngn-font-family: var(--main-font-family);
+    font-family: var(--main-font-family);
+}
+
+body.crlngn-ui.crlngn-chat.system-lancer :is(#interface, #chat-popout, #chat-pins, .chat-log.themed, .chat-popout).theme-dark .chat-message select,
+body.crlngn-ui.crlngn-chat.system-lancer.theme-dark :is(.chat-log, .chat-popout).theme-light .chat-message select,
+body.crlngn-ui.crlngn-chat.system-lancer.stream.theme-dark .chat-message select {
+    color: var(--cui-chat-text-primary);
+}
+
+body.crlngn-ui.crlngn-chat.system-lancer :is(#interface, #chat-popout, #chat-pins, .chat-log.themed, .chat-popout).theme-dark .chat-message .la-invert-icon,
+body.crlngn-ui.crlngn-chat.system-lancer.theme-dark :is(.chat-log, .chat-popout).theme-light .chat-message .la-invert-icon,
+body.crlngn-ui.crlngn-chat.system-lancer.stream.theme-dark .chat-message .la-invert-icon {
+    filter: none;
+}
