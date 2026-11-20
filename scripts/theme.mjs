@@ -39,6 +39,17 @@ function syncDarkClass()
     root.classList.toggle('la-light', !dark);
 }
 
+let lastBodyClass = null;
+
+function onBodyClassChange()
+{
+    const current = document.body.className;
+    if (current === lastBodyClass)
+        return;
+    lastBodyClass = current;
+    syncDarkClass();
+}
+
 function applyTheme()
 {
     let mode = 'light';
@@ -70,6 +81,7 @@ Hooks.once('init', () =>
 Hooks.once('ready', () =>
 {
     applyTheme();
+    lastBodyClass = document.body.className;
     // Re-sync .la-dark when the Lancer theme (body class) changes.
-    new MutationObserver(syncDarkClass).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    new MutationObserver(onBodyClassChange).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 });
