@@ -40,13 +40,19 @@ function syncDarkClass()
 }
 
 let lastBodyClass = null;
+const PLATE_NEUTRAL_CLASSES = new Set(['la-stat-docked', 'la-stat-dock-open', 'la-stat-dock-fold', 'la-measure-suppressed']);
 
 function onBodyClassChange()
 {
     const current = document.body.className;
     if (current === lastBodyClass)
         return;
+    const before = new Set((lastBodyClass ?? '').split(/\s+/).filter(Boolean));
+    const after = new Set(current.split(/\s+/).filter(Boolean));
+    const changed = [...before, ...after].filter(name => before.has(name) !== after.has(name));
     lastBodyClass = current;
+    if (changed.every(name => PLATE_NEUTRAL_CLASSES.has(name)))
+        return;
     syncDarkClass();
 }
 
